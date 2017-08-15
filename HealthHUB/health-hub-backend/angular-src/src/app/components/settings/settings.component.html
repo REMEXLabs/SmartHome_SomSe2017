@@ -1,0 +1,34 @@
+<div class="row  mt-20">
+  <div class="col-xs-12 text-center">
+    Not content with the font-size? Make it bigger/smaller.
+  </div>
+  <div class="col-xs-12 text-center mt-10">
+    <span>
+      big
+    </span>
+    <label class="switch">
+      <input type="checkbox" (change)="toggleAffinity()" [checked]="checkAffinity">
+      <div class="slider round"></div>
+    </label>
+    <span>
+      small
+    </span>
+  </div>
+</div>
+<div class="row  mt-20">
+  <div class="col-xs-12 text-center">
+    Do you want to make your scan results available for the smart-devices in your house?
+  </div>
+  <div class="col-xs-12 text-center mt-10">
+    <span>
+      no
+    </span>
+    <label class="switch">
+      <input type="checkbox" (change)="toggleThirdPartyAccess()" [checked]="checkAccess">
+      <div class="slider round"></div>
+    </label>
+    <span>
+      yes
+    </span>
+  </div>
+</div>

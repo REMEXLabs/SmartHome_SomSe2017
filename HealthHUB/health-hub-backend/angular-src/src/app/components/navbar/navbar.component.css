@@ -1,0 +1,48 @@
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  background-color: #000;
+  opacity: 0.7;
+}
+
+.navbar-nav {
+  float: left;
+}
+
+.navbar-nav>li {
+  float: left;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+nav li.logo img {
+    width: 32px;
+}
+
+nav li.logo a {
+  position: absolute;
+  top: -6px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  font-size: 26px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: #111!important;
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+    background-color: #000;
+}
+
+.glyphicon {
+    margin: 0 5px 5px 0;
+    font-size: 22px;
+    color: white
+}

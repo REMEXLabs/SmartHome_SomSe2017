@@ -1,0 +1,12 @@
+.bar {
+  height: 20px;
+  background-color: white;
+}
+
+.bar.progressline {
+  background-color: salmon
+}
+
+img.hand {
+  height: 180px
+}

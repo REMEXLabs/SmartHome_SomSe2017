@@ -1,0 +1,126 @@
+<!-- Top row -->
+<div class="row bg welcome">
+  <!-- Top row without user -->
+  <div *ngIf="!user" class="col-xs-12 text-center bottom">
+    <h1>Hello!</h1>
+  </div>
+  <!-- Top row with user -->
+  <div *ngIf="user" class="col-xs-12 bottom">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <h1>Hello {{user.firstname}}</h1>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <flash-messages></flash-messages>
+</div>
+
+<div class="divider"></div>
+
+<!-- Display scanning process/vital data -->
+<div *ngIf="(scanSuccessful == false && scanning == true) || scanSuccessful == true" class="row bg-white">
+    <div class="mt-10 text-center">
+      <!-- High affinity -->
+      <ng-container  *ngIf="user.technicalAffinity == 'high'">
+          <div class="col-xs-4 stress">
+            <ng-container *ngIf="healthValues?.gsr">
+              <img class="health-icon" aria-hidden="true" src ="assets/img/Stress_GraficsForScanMode.png"/>
+              <h2>{{healthValues.gsr.text}}</h2>
+              {{user.firstname}}
+              <div class="col-xs-12 text-center" *ngIf="scanSuccessful">
+                <a [routerLink]="['/history']" [queryParams]="{tab: 'stress'}" class="btn btn-primary" [ngClass]="{'hidden': (user.firstname == null)}">View History</a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!healthValues?.gsr">
+              <img class="health-gif" aria-hidden="true" src ="assets/img/loading_stress.gif"/>
+            </ng-container>
+          </div>
+          <div class="col-xs-4 pulse">
+            <ng-container *ngIf="healthValues?.pulse">
+              <img class="health-icon" aria-hidden="true" src ="assets/img/Heart_GraficsForScanMode.png"/>
+              <h2>{{healthValues.pulse.value}}</h2>
+              <span class="small">bpm</span>
+              <div class="col-xs-12 text-center" *ngIf="scanSuccessful">
+                <a [routerLink]="['/history']" [queryParams]="{tab: 'heart'}" class="btn btn-primary" [ngClass]="{'hidden': (user.firstname == null)}">View History</a>
+                <a (click)="register()" class="btn btn-primary" [ngClass]="{'hidden': (user.firstname != null )}">Register</a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!healthValues?.pulse">
+              <img class="health-gif" aria-hidden="true" src ="assets/img/loading_heart.gif"/>
+            </ng-container>
+          </div>
+          <div class="col-xs-4 temp">
+            <ng-container *ngIf="healthValues?.temp">
+              <img class="health-icon" aria-hidden="true" src ="assets/img/Temp_GraficsForScanMode.png"/>
+              <h2>{{healthValues.temp.value}}</h2>
+              <span class="small">°C</span>
+              <div class="col-xs-12 text-center" *ngIf="scanSuccessful">
+                <a [routerLink]="['/history']" [queryParams]="{tab: 'temp'}" class="btn btn-primary" [ngClass]="{'hidden': (user.firstname == null)}">View History</a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!healthValues?.temp">
+              <img class="health-gif" aria-hidden="true" src ="assets/img/loading_temp.gif"/>
+            </ng-container>
+          </div>
+      </ng-container>
+      <!-- Low affinity -->
+      <ng-container *ngIf="user.technicalAffinity == 'low'">
+        <div class="col-xs-4 stress">
+          <ng-container *ngIf="healthValues?.gsr">
+            <img class="health-icon" aria-hidden="true" src ="assets/img/Stress_GraficsForScanMode.png"/>
+            <div id="light">
+                <span id="red" [ngClass]="{'active': (healthValues.gsr.text == 'high' || healthValues.gsr.text == 'very high')}"></span>
+                <span id="orange" [ngClass]="{'active': (healthValues.gsr.text == 'low')}"></span>
+                <span id="green" [ngClass]="{'active':(healthValues.gsr.text == 'normal')}"></span>
+            </div>
+          </ng-container>
+          <div *ngIf="!healthValues?.gsr">
+            <img class="health-gif" aria-hidden="true" src ="assets/img/loading_stress.gif"/>
+          </div>
+        </div>
+        <div class="col-xs-4 pulse">
+          <ng-container *ngIf="healthValues?.pulse">
+            <img class="health-icon" aria-hidden="true" src ="assets/img/Heart_GraficsForScanMode.png"/>
+            <div id="light">
+                <span id="red" [ngClass]="{'active': (healthValues.pulse.text == 'high')}"></span>
+                <span id="orange" [ngClass]="{'active': (healthValues.pulse.text == 'low')}"></span>
+                <span id="green" [ngClass]="{'active':(healthValues.pulse.text == 'normal')}"></span>
+            </div>
+          </ng-container>
+          <div *ngIf="!healthValues?.pulse">
+            <img class="health-gif" aria-hidden="true" src ="assets/img/loading_heart.gif"/>
+          </div>
+        </div>
+        <div class="col-xs-4 temp">
+          <ng-container *ngIf="healthValues?.temp">
+            <img class="health-icon" aria-hidden="true" src ="assets/img/Temp_GraficsForScanMode.png"/>
+            <div id="light">
+                <span id="red" [ngClass]="{'active': (healthValues.temp.text == 'high')}"></span>
+                <span id="orange" [ngClass]="{'active': (healthValues.temp.text == 'low')}"></span>
+                <span id="green" [ngClass]="{'active': (healthValues.temp.text == 'normal')}"></span>
+            </div>
+          </ng-container>
+          <div *ngIf="!healthValues?.temp">
+            <img class="health-gif" aria-hidden="true" src ="assets/img/loading_temp.gif"/>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="scanning == true && scanSuccessful == false">
+        <div style="display: block; width: 100%">
+          <canvas baseChart width="600" height="80"
+                  [datasets]="stressData"
+                  [labels]="dateLabels"
+                  [options]="stressChartOptions"
+                  [chartType]="'line'">
+          </canvas>
+        </div>
+      </ng-container>
+    </div>
+</div>
+
+<div *ngIf="!scanSuccessful && scanning == false" class="row bg-white">
+  <div class="mt-20 text-center">
+    <div class="col-xs-12" style="color: black">Oops, the scan failed! Please try it again.</div>
+    <a [routerLink]="['/scan-start']" class="btn btn-primary">Try again</a>
+  </div>
+</div>

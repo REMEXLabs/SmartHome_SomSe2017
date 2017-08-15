@@ -1,0 +1,81 @@
+<swiper [config]="config">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide text-center">
+      <h1>GETTING STARTED</h1>
+      <div class="row">
+        <ng-container *ngIf="user.technicalAffinity == 'high'">
+          <div class="col-xs-4">
+            <h2>1. PUT ON</h2>
+            <img src="assets/img/scanning.png" class="instruction"/>
+            <p>
+              Put your hand on the scanner and keep on until the scan is finished.
+            </p>
+          </div>
+          <div class="col-xs-4">
+            <h2>2. VIEW STATUS</h2>
+            <img src="assets/img/viewHealthStatus.png" class="instruction"/>
+            <p>
+              Your vital data will be presented on the screen.
+            </p>
+          </div>
+          <div class="col-xs-4">
+            <h2>3. CHECK OUT</h2>
+            <img src="assets/img/checkOut.png" class="instruction"/>
+            <p>
+              Check your personal health-history.
+            </p>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="user.technicalAffinity == 'low'">
+          <div class="col-xs-6">
+            <h2>1. PUT ON</h2>
+            <img src="assets/img/scanning.png" class="instruction"/>
+            <p>
+              Put your hand on the scanner and keep on until the scan is finished.
+            </p>
+          </div>
+          <div class="col-xs-6">
+            <h2>2. VIEW STATUS</h2>
+            <img src="assets/img/viewHealthStatus.png" class="instruction"/>
+            <p>
+              Your vital data will be presented on the screen.
+            </p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="swiper-slide text-center">
+      <h1>INSTRUCTIONS</h1>
+      <div class="row">
+        <div class="col-xs-6">
+          <img src="assets/img/SettingsForHelpSection.png" class="settings"/>
+        </div>
+        <div class="col-xs-6">
+          <h2>SETTINGS</h2>
+          <p class="large">
+            Go to the settings to change adapt the health-hub to your personal preferences.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide text-center" *ngIf="user.technicalAffinity == 'high'">
+      <h1>INSTRUCTIONS</h1>
+      <div class="row">
+        <div class="col-xs-6">
+          <img src="assets/img/HistorySymbolForHelpSection.png" class="settings"/>
+        </div>
+        <div class="col-xs-6">
+          <h2>HISTORY</h2>
+          <p class="large">
+            Go to history to look up your past health status and detailed histograms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</swiper>

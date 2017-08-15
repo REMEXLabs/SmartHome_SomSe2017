@@ -1,0 +1,29 @@
+swiper{
+    height: 400px;
+    width: 100%;
+}
+
+h1 {
+  position: relative;
+}
+
+.row {
+  margin: 0;
+  -ms-transform: translateY(-20%);
+  -webkit-transform: translateY(-20%);
+  transform: translateY(-20%);
+  top: 17%;
+  position: relative;
+}
+
+img.instruction {
+  width: 80px;
+}
+
+img.settings {
+  width: 120px;
+}
+
+h2 {
+  font-size: 22px;
+}

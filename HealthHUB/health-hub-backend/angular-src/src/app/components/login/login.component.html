@@ -1,0 +1,48 @@
+<!-- Top -->
+<div>
+  <!--div class="row bg">
+    <div class="col-xs-12 text-center bottom">
+      <h1>Login to</h1>
+      <div class="health-hub">
+        <img src="../../../assets/img/Logo_Icon.png" class="logo">
+        <span class="project-name">health hub</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div!-->
+
+  <!-- Bottom -->
+  <div class="row mt-10">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 text-center">
+      <form class="form-horizontal" #loginForm="ngForm">
+        <fieldset>
+          <div class="form-group">
+            <label for="name" class="control-label">Surname</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Surname" [(ngModel)]="user.surname"
+            #surname="ngModel" required>
+          </div>
+          <div class="form-group">
+            <label for="name" class="control-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" [(ngModel)]="user.name"
+            #name="ngModel" required>
+          </div>
+          <div class="form-group">
+            <label for="birthday" class="control-label">Birthday</label>
+            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="user.birthday"
+            #birthday="ngModel" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+          </div>
+        </fieldset>
+        </form>
+        <!--<div class="">
+          <span>No account yet?</span>
+          <a [routerLink]="['/sign-up']">Sign up</a>
+        </div>-->
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>

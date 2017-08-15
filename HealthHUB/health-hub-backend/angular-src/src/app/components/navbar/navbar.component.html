@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+      <ul class="nav navbar-nav">
+        <li *ngIf="showArrow">
+          <a (click)="back()">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li *ngIf="user.technicalAffinity == 'high'" class="logo">
+          <a [routerLink]="['scan-start']">
+            <img src="../../../assets/img/Logo_Icon_white.png">
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="user.technicalAffinity == 'low'" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['scan-start']">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            Home
+          </a>
+        </li>
+        <!--li *ngIf="!user.id" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['login']">
+            <span class="glyphicon glyphicon-user" aria-hidden="true" *ngIf="(user.technicalAffinity == 'low')"></span>
+            Login
+          </a>
+        </li-->
+        <li *ngIf="!user.id" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['sign-up']">
+            <span class="glyphicon glyphicon-user" aria-hidden="true" *ngIf="(user.technicalAffinity == 'low')"></span>
+            Register
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['settings']">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true" *ngIf="(user.technicalAffinity == 'low')"></span>
+            Settings
+          </a>
+        </li>
+        <li *ngIf="(user.id) && (user.technicalAffinity == 'high')" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['history']">
+            History
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['help']">
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" *ngIf="(user.technicalAffinity == 'low')"></span>
+            Help
+          </a>
+        </li>
+        <li *ngIf="user.id">
+          <a [routerLink]="['scan-start']" (click)="logout()">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true" *ngIf="user.id && (user.technicalAffinity == 'low')"></span>
+            Logout
+          </a>
+        </li>
+      </ul>
+  </div>
+</nav>

@@ -1,0 +1,242 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'champagne-limousines';
+  src: url('/assets/fonts/champagne_limousines.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'champagne-limousines-italic';
+  src: url('/assets/fonts/champagne_limousines_italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'champagne-limousines-bold';
+  src: url('/assets/fonts/champagne_limousines_bold.tff') format('truetype');
+}
+
+@font-face {
+  font-family: 'champagne-limousines-bold-italic';
+  src: url('/assets/fonts/champagne_limousines_bold_italic.ttf') format('truetype');
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-family: 'champagne-limousines', sans-serif;
+  font-size: 22px;
+  color: #fff;
+  background-image: url('/assets/img/bg_stonyWater_history.jpg');
+  background-size: cover;
+}
+
+body.white {
+  background-color: #fff;
+  background-image: none;
+}
+
+body.white .navbar-default {
+  background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'champagne-limousines';
+}
+
+h1, .h1 {
+    font-size: 40px;
+}
+
+h2, .h2 {
+    font-size: 36px;
+}
+
+p {
+  font-size: 22px;
+}
+
+label, .control-label, .help-block, .checkbox, .radio {
+  font-size: 22px;
+}
+
+.btn {
+  font-size: 22px;
+}
+
+.btn-primary {
+  background-color: #A0C6CF;
+  border: 0;
+}
+
+.btn-primary:hover {
+  background-color: #79919E;
+}
+
+.container {
+  width: 100%!important
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+body.white .stones {
+  background-image: url('assets/img/bg_stonyWater_header.jpg');
+  background-size: cover;
+}
+
+.bg {
+  min-height: 110px;
+  position: relative;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-white h2 {
+  color: #3A3D42;
+}
+
+.row.bg.welcome {
+  position: relative;
+}
+
+.alert {
+  margin-bottom: 0!important;
+  text-align: center;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 5%;
+}
+
+.divider {
+  height: 5px;
+  background-color: #666;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.glyphicon-heart {
+  font-size: 50px;
+}
+
+img.logo {
+  width: 40px;
+}
+
+span.project-name {
+  color: white;
+  text-transform: uppercase;
+  font-size: 32px;
+  position: relative;
+  top: 5px;
+}
+
+/* Technical Affinity: low */
+
+.big {
+  font-size: 36px;
+}
+
+.big p {
+  font-size: 36px;
+}
+
+.big .btn {
+  font-size: 36px;
+}
+
+.big .navbar-default[_ngcontent-c1]   .navbar-nav[_ngcontent-c1] > li[_ngcontent-c1] > a[_ngcontent-c1] {
+  font-size: 36px;
+  font-family: 'champagne-limousines-bold';
+}
+
+/* BEGIN TOGGLE SWITCH */
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightblue;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* END TOGGLE SWITCH */
+
+
+@media (max-width: 768px) {
+  .form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

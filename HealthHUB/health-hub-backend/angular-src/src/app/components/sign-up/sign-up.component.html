@@ -1,0 +1,82 @@
+<!-- Start registration process -->
+<flash-messages></flash-messages>
+
+<div class="row mt-10" *ngIf="progress == 0">
+  <div class="col-lg-12 text-center">
+      <button class="btn btn-primary" (click)="register()">Register</button>
+  </div>
+</div>
+
+<!-- Display Progress -->
+<div *ngIf="progress >= 1">
+  <div class="row mt-10" *ngIf="progress <= 3">
+    <div class="col-xs-12 text-center">
+      <label class="control-label">
+        Place your index finger on the blue sensor until the bar is completely filled
+      </label>
+    </div>
+  </div>
+
+  <div class="row mt-10" >
+    <div class="col-xs-3"></div>
+    <div class="col-xs-2 bar" [ngClass]="{'progressline': progress >= 2 }"></div>
+    <div class="col-xs-2 bar" [ngClass]="{'progressline': progress >= 3 }"></div>
+    <div class="col-xs-2 bar" [ngClass]="{'progressline': progress >= 4 }"></div>
+    <div class="col-xs-3"></div>
+  </div>
+  <div class="row mt-10" *ngIf="progress == 4">
+    <div class="col-xs-12 text-center">
+      <label class="control-label">Completed!</label>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add personal data and finish registration -->
+<div class="row mt-10" *ngIf="progress == 4">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8 text-center">
+    <form class="form-horizontal" #signupForm="ngForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <div class="form-group">
+          <label for="firstname" class="control-label">Name</label>
+          <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname"
+          #firstname="ngModel" required>
+        </div>
+        <div class="form-group">
+          <label for="surname" class="control-label">Surname</label>
+          <input type="text" class="form-control" id="surname" name="surname" [(ngModel)]="user.lastname"
+          #surname="ngModel" required>
+        </div>
+        <div class="form-group">
+          <label for="surname" class="control-label">Technical Affinity</label>
+          <div class="col-xs-12 text-center mt-10">
+            <span>
+              low
+            </span>
+            <label class="switch">
+              <input type="checkbox" (change)="toggleAffinity()" [checked]="checkAffinity">
+              <div class="slider round"></div>
+            </label>
+            <span>
+              high
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Finish Registration</button>
+        </div>
+      </fieldset>
+      </form>
+  </div>
+  <div class="col-xs-2"></div>
+</div>
+
+<div *ngIf="progress == -1">
+  <div class="row mt-10">
+    <div class="col-xs-12 text-center">
+      <h2>Put your hand on the scanner to start your very first scan</h2>
+      <img src="assets/img/hand.svg" alt="Hand" class="hand"/>
+    </div>
+  </div>
+</div>

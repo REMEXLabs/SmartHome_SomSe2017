@@ -1,0 +1,18 @@
+[submodule "Arduino-Makefile"]
+	path = Arduino-Makefile
+	url = https://github.com/sudar/Arduino-Makefile
+[submodule "lib/Fingerprint_Scanner-TTL"]
+	path = lib/Fingerprint_Scanner-TTL
+	url = https://github.com/AndreasFliehr/Fingerprint_Scanner-TTL.git
+[submodule "lib/PulseSensorBPM"]
+	path = lib/PulseSensorBPM
+	url = https://github.com/ninaschaaf/PulseSensorBPM.git
+[submodule "lib/Adafruit_NeoPixel"]
+	path = lib/Adafruit_NeoPixel
+	url = https://github.com/td042/Adafruit_NeoPixel
+[submodule "lib/Arduino-Temperature-Control-Library"]
+	path = lib/Arduino-Temperature-Control-Library
+	url = https://github.com/EricSchmidt93/Arduino-Temperature-Control-Library.git
+[submodule "lib/OneWire"]
+	path = lib/OneWire
+	url = https://github.com/EricSchmidt93/OneWire.git

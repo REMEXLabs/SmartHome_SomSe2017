@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="healthhub"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+        xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+    <!--HealthHub Thing-->
+    <thing-type id="user">
+        <label>User Information</label>
+        <description>Display the last logged on user</description>
+
+        <channels>
+            <channel id="userName" typeId="userName"></channel>
+            <channel id="userHeartrate" typeId="userHeartrate"></channel>
+            <channel typeId="userTemp" id="userTemp"></channel>
+            <channel typeId="userStress" id="userStress"></channel>
+            <channel typeId="userTimestamp" id="userTimestamp"></channel>
+            <channel typeId="userAllow3rdParty" id="userAllow3rdParty"></channel></channels>
+        <config-description>
+        	<parameter name="URL" type="text" required="true">
+        		<label>HealthHub URL</label>
+        		<description>The URL of the HealthHub System</description></parameter></config-description>
+    </thing-type>
+    <channel-type id="userName">
+        <item-type>String</item-type>
+        <label>Full Name</label>
+        <category>oil</category>
+        <state readOnly="true"></state>
+    </channel-type>
+    <channel-type id="userHeartrate">
+    	<item-type>String</item-type>
+    	<label>Heartrate</label>
+    	<state readOnly="false"></state>
+    </channel-type>
+    <channel-type id="userTemp">
+    	<item-type>String</item-type>
+    	<label>Body Temperature</label>
+    	<state readOnly="true"></state>
+    </channel-type>
+    <channel-type id="userStress">
+    	<item-type>String</item-type>
+    	<label>Stress Level</label>
+    	<state readOnly="true"></state>
+    </channel-type>
+    <channel-type id="userTimestamp">
+    	<item-type>String</item-type>
+    	<label>Scan Timestamp</label>
+    	<state readOnly="true"></state>
+    </channel-type>
+    <channel-type id="userAllow3rdParty">
+    	<item-type>Switch</item-type>
+    	<label>3rd Party Access</label>
+    	<state readOnly="true"></state>
+    </channel-type>
+
+</thing:thing-descriptions>

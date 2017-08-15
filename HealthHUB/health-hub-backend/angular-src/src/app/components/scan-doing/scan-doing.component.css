@@ -1,0 +1,78 @@
+.welcome h1 {
+  font-family: 'champagne-limousines-bold';
+}
+
+span.glyphicon {
+  display: block;
+  color: #000;
+}
+
+h2 {
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: black;
+}
+
+img.health-icon {
+  height: 45px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+img.health-gif {
+  height: 70px;
+  display: block;
+  margin: 0 auto;
+}
+
+span.small {
+  font-size: 20px;
+  color: black;
+}
+
+flash-messages {
+  position: absolute;
+  width: 100%;
+  bottom: 0
+}
+
+.flash-messages .alert {
+    text-align: center;
+}
+
+/*! Light */
+#light {
+    background-color: #000;
+    box-shadow: 0 0 5px rgba(0,0,0, .8);
+    overflow: hidden;
+    padding: 0 0 4px;
+    width: 50px;
+    margin: 5px auto 0;
+}
+
+#light span {
+    border-radius: 50px;
+    display: block;
+    height: 40px;
+    margin: 4px auto 0;
+    opacity: .5;
+    width: 40px;
+}
+
+/*! Light colours */
+#red    { background-color: red; }
+#orange { background-color: orange; }
+#green  { background-color: #90EE90; }
+
+/*! Active states */
+#light span.active    { opacity: 1; }
+#light #red.active    { box-shadow: 0 0 10px red; }
+#light #orange.active { box-shadow: 0 0 10px orange; }
+#light #green.active  { box-shadow: 0 0 10px #90EE90; }
+
+canvas {
+  position: absolute;
+  bottom: 5px;
+  width: 100%!important
+}

@@ -1,0 +1,54 @@
+<!--h1>History</h1>-->
+
+<tabs>
+  <!-- Stress -->
+  <tab [tabTitle]="'Stress'" [active]="stressActive ? true: false" [icon]="'headButton.png'">
+    <div>
+      <div style="display: block">
+        <canvas baseChart width="350" height="150"
+                [datasets]="stressData"
+                [labels]="dateLabels"
+                [options]="stressChartOptions"
+                [legend]="true"
+                [chartType]="'line'"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+  </tab>
+  <!-- Pulse -->
+  <tab [tabTitle]="'Pulse'" [active]="heartActive ? true: false" [icon]="'Heart_HistoryButton.png'">
+    <div class="row">
+      <div class="col-md-6">
+        <div style="display: block;">
+          <canvas baseChart  width="350" height="150"
+                  [datasets]="pulseData"
+                  [labels]="dateLabels"
+                  [options]="pulseChartOptions"
+                  [chartType]="'line'"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </tab>
+  <!--Temperature -->
+  <tab [tabTitle]="'Temperature'" [active]="tempActive ? true: false" [icon]="'temp.png'">
+    <div class="row">
+      <div class="col-md-6">
+        <div style="display: block;">
+          <canvas baseChart  width="350" height="150"
+                  [datasets]="temperatureData"
+                  [labels]="dateLabels"
+                  [options]="tempChartOptions"
+                  [chartType]="'line'"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </tab>
+</tabs>
