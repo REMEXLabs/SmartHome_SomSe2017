@@ -1,0 +1,9 @@
+rule "set default configuration on startup"
+when
+    System started
+then
+    sendCommand(Config_OutletDelay, 30)
+    sendCommand(Config_TimeBoundaryHourBegin, 22)
+    sendCommand(Config_TimeBoundaryHourEnd, 6)
+    sendCommand(Config_TimeBoundaryMinute, "00")
+end

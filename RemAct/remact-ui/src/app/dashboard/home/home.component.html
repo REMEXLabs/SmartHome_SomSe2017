@@ -1,0 +1,63 @@
+<md-grid-list cols="4" rowHeight="300px">
+
+  <md-grid-tile colspan={{cardTiles[0].cols}} rowspan={{cardTiles[0].rows}}>
+    <md-card class="remact-card">
+      <md-card-title>{{cardTiles[0].title}}</md-card-title>
+      <md-card-content>
+        <img md-card-md-image src="assets/herd-{{userInput.isOutletOn ? 'an' : 'aus'}}.svg"/>
+      </md-card-content>
+      <md-card-actions>
+        <span>AUS</span>
+        <md-slide-toggle [(ngModel)]="userInput.isOutletOn" (change)="toggleOutlet()">
+        </md-slide-toggle>
+        <span>AN</span>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+
+  <md-grid-tile colspan={{cardTiles[1].cols}} rowspan={{cardTiles[1].rows}}>
+    <md-card class="remact-card">
+      <md-card-title>{{cardTiles[1].title}}</md-card-title>
+      <md-card-content>
+        <img md-card-md-image src="assets/tuer-{{userInput.isDoorUnlocked ? 'auf' : 'zu'}}.svg"/>
+      </md-card-content>
+      <md-card-actions>
+        <span>ZU</span>
+        <md-slide-toggle [(ngModel)]="userInput.isDoorUnlocked" (change)="toggleDoor()">
+        </md-slide-toggle>
+        <span>AUF</span>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+
+  <md-grid-tile colspan={{cardTiles[2].cols}} rowspan={{cardTiles[2].rows}}>
+    <md-card class="remact-card">
+      <md-card-title>{{cardTiles[2].title}}</md-card-title>
+      <md-card-content>
+        <img md-card-md-image src="assets/fenster.svg"/>
+      </md-card-content>
+      <md-card-actions>
+        <span>ZU</span>
+        <md-slide-toggle>
+        </md-slide-toggle>
+        <span>AUF</span>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+
+  <md-grid-tile colspan={{cardTiles[3].cols}} rowspan={{cardTiles[3].rows}}>
+    <md-card class="remact-card">
+      <md-card-title>{{cardTiles[3].title}}</md-card-title>
+      <md-card-content>
+        <img md-card-md-image src="assets/fenster.svg"/>
+      </md-card-content>
+      <md-card-actions>
+        <span>ZU</span>
+        <md-slide-toggle>
+        </md-slide-toggle>
+        <span>AUF</span>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+
+</md-grid-list>

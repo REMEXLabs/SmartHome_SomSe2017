@@ -1,0 +1,41 @@
+import org.joda.time.*
+import java.lang.Integer.*
+
+
+var counter = 0
+
+rule "corLightOff"
+  when
+    Time cron "0 * * * * ?"
+  then
+    logDebug("Demo", "Counter is: " + counter);
+    logDebug("Demo", "ColorTempreture is: " + RemActLight_ColorTemperature.state);
+    logDebug("Demo", "Hour of day is: " + now.getHourOfDay);
+    logDebug("Demo", "TimeBoundaryHour begins at: " + Config_TimeBoundaryHourBegin.state);
+    logDebug("Demo", "TimeBoundaryHour ends at: " + Config_TimeBoundaryHourEnd.state);
+    logDebug("Demo", "Outlet delay is: " + Config_OutletDelay.state);
+    
+    if(RemActLight_ColorTemperature.state > 40) {
+      counter = 0;
+      logDebug("Demo", "Light is on, counter reseted");
+    } else {       
+        var fromV = (Config_TimeBoundaryHourBegin.state as DecimalType) * 100;
+        var toV  = (Config_TimeBoundaryHourEnd.state as DecimalType) * 100;
+        var t = now.getHourOfDay * 100 + now.getMinuteOfHour;
+
+        if(toV > fromV && t >= fromV && t <= toV || toV < fromV && (t >= fromV || t <= toV)) {
+          logInfo("Demo", "counter incremented");
+           counter +=1;
+        } else {
+          logInfo("Demo", "counter reseted");
+          counter = 0;
+        }
+
+        if(counter >= (Config_OutletDelay.state as DecimalType)) {
+          sendCommand(Edimax_Switch, OFF);
+          sendCommand(Door_Unlocked, OFF);
+          counter = 0;
+	  logInfo("Demo", "Switched door and edimax!!!!");
+      }
+    }
+end

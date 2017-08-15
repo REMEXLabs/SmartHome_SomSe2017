@@ -1,0 +1,3 @@
+Switch Edimax_Switch "Edimax Switch" {channel="edimax:sp2101w:switch1:switch"}
+Number Edimax_Current "Edimax Anpere Use" {channel="edimax:sp2101w:switch1:current"}
+Number Edimax_Power "Edimax Power Use" { channel="edimax:sp2101w:switch1:power"}

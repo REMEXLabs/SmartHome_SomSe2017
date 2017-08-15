@@ -1,0 +1,5 @@
+String Config_TimeBoundaryMinute "Config Time Boundary Minute"
+Number Config_TimeBoundaryHourBegin "Config Time Boundary lower border"
+Number Config_TimeBoundaryHourEnd "Config Time Boundary upper border"
+Number Config_OutletDelay  "Config Outlet Delay"
+

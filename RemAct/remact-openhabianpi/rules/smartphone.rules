@@ -1,0 +1,21 @@
+var counterSmartphone = 0
+
+rule "smartPhoneOff"
+  when
+    Time cron "0 * * * * ?"
+  then
+    logDebug("Demo", "Smartphone counter is: " + counterSmartphone);
+
+    if(Smartphone_Online.state == ON) {
+      counterSmartphone = 0;
+      logDebug("Demo", "SmartPhone Online, counter reseted");
+    } else {
+        counterSmartphone++;
+        if(counterSmartphone > 10) {
+          sendCommand(Door_Unlocked, OFF);
+          counterSmartphone = 0;
+        }
+    }
+end
+
+

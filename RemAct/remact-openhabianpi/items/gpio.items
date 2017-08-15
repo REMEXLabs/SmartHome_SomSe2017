@@ -1,0 +1,2 @@
+Switch gpio_LED4 "GPIO LED4" { gpio="pin:4 force:yes" }
+Switch gpio_LED17 "GPIO LED17" { gpio="pin:17 force:yes" }

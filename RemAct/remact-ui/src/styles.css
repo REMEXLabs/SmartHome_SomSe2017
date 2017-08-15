@@ -1,0 +1,119 @@
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body, md-sidenav-container, .outer-wrapper {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+md-card {
+  text-align: center;
+}
+
+md-toolbar-row {
+  justify-content: space-between;
+}
+.mat-toolbar-row span{
+  font-size: 100% !important;
+}
+.mat-toolbar-row button, .mat-toolbar-row a.mat-icon-button{
+  font-size: 100% !important;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+/*Spacer in Header*/
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+/*Select input*/
+.time-select{
+  width: 70px;
+}
+.time-select .mat-select-trigger{
+  min-width: 50px;
+}
+.time-select:nth-of-type(1){
+  margin-right: 5px;
+}
+.time-select:nth-of-type(2){
+  margin-left: 5px;
+}
+
+
+/*Toggle slider*/
+.remact-card .mat-slide-toggle-bar{
+  background-color: rgba(56, 142, 60, 1);
+  height: 30px;
+  border-radius: 18px;
+  width: 60px;
+}
+.remact-card .mat-slide-toggle-thumb {
+  background-color: rgba(0, 80, 5, 1);
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+}
+.remact-card .mat-slide-toggle-thumb-container{
+  top: -2px;
+}
+
+.remact-card .mat-card-actions span{
+  line-height: 100%;
+  vertical-align: 50%;
+}
+.remact-card .mat-card-actions{
+  font-size: 100%;
+}
+.remact-card .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container{
+  transform: translate3d(30px, 0 ,0) !important;
+}
+
+.remact-card .mat-card-md-image{
+  width: 90px;
+}
+
+.remact-card .mat-card-title{
+  font-size: 170%;
+}
+
+/*Settings Descriptions*/
+.mat-list .mat-list-item .list-line-secondary,
+.mat-list .mat-list-item .mat-line.list-line-secondary {
+  color: rgb(125,125,125);
+  font-size: 90%;
+}
+.mat-list .mat-list-item .mat-list-text h4.mat-line{
+  font-size: 105%;
+}
+.mat-list-item .material-icons{
+  font-size: 190%;
+}
+
+.mat-list .mat-subheader, .mat-nav-list .mat-subheader{
+  font-size: 115%;
+}
+
+
+
+
+
+
+.strong-contrast .app-content p ,
+.strong-contrast .app-content h1,
+.strong-contrast .app-content h2,
+.strong-contrast .app-content h3,
+.strong-contrast .app-content h4,
+.strong-contrast .app-content .mat-select-trigger span{
+  color: rgb(0, 0, 0) !important;
+}

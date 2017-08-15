@@ -1,0 +1,27 @@
+{
+   "contexts":{
+      "Luise":{
+         "name":"Luise's preferences",
+         "preferences":{
+            "font-size-small" : false,
+            "font-size-large" : false,
+            "primary-color-green": false,
+            "primary-color-red": false,
+            "night-mode": false,
+            "strong-contrast": false
+         }
+      },
+      "Ingobert":{
+         "name":"Ingobert's preferences",
+         "preferences":{
+            "font-size-small" : false,
+            "font-size-large" : false,
+            "primary-color-green": false,
+            "primary-color-red": false,
+            "night-mode": false,
+            "strong-contrast": false
+         }
+      }
+   },
+   "public":true
+}

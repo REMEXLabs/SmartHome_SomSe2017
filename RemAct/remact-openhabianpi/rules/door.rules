@@ -1,0 +1,12 @@
+rule "led toggle for door locked status"
+when
+    Item Door_Unlocked received update
+then
+    // check for door status
+    if (Door_Unlocked.state == ON) {        
+        sendCommand(gpio_LED17, OFF)	
+    } else {
+    	sendCommand(gpio_LED17, ON)	
+    }
+end
+

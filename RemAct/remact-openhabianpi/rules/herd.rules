@@ -1,0 +1,12 @@
+rule "led toggle for stove"
+when
+    Item Edimax_Power received update
+then
+    // check for power
+    if (Edimax_Power.state > 2) {        
+        sendCommand(gpio_LED4, OFF)	
+    } else {
+    	sendCommand(gpio_LED4, ON)	
+    }
+end
+

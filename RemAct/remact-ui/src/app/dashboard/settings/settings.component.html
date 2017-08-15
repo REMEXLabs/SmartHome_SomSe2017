@@ -1,0 +1,31 @@
+<md-spinner *ngIf="!loaded" class="settings-loader"></md-spinner>
+<md-list *ngIf="loaded">
+    <h3 md-subheader>Einstellungen</h3>
+    <md-list-item>
+        <md-icon md-list-icon>access_time</md-icon>
+        <h4 md-line>Uhrzeit</h4>
+        <p md-line class="list-line-secondary">Zeitpunkt, nach dem RemAct Ihre Geräte automatisch ausschalten soll.</p>
+        <p md-line class="list-line-secondary">Aktuell: von {{systemInput.Config_TimeBoundaryHourBegin}} - {{systemInput.Config_TimeBoundaryHourEnd}} Uhr</p>
+
+        <md-select placeholder="von" [(ngModel)]="userInput.Config_TimeBoundaryHourBegin" class="time-select">
+            <md-option *ngFor="let hour of hours" [value]="hour">{{ hour }}</md-option>
+        </md-select>
+        <span> - </span>
+        <md-select placeholder="bis" [(ngModel)]="userInput.Config_TimeBoundaryHourEnd" class="time-select">
+            <md-option *ngFor="let hour of hours" [value]="hour">{{ hour }}</md-option>
+        </md-select>
+    </md-list-item>
+   <md-list-item>
+    <md-icon md-list-icon>timelapse</md-icon>
+    <h4 md-line>Steckdosen-Verzögerung</h4>
+    <p md-line class="list-line-secondary">Zeitdauer nach dem Zeitpunkt nach dem RemAct Ihre Geräte automatisch ausschalten soll.</p>
+    <md-slider [min]="minOutletDelay" [max]="maxOutletDelay" [(ngModel)]="userInput.Config_OutletDelay" step="15" thumb-label="true"></md-slider>
+    <p md-line class="list-line-secondary">Aktuell: {{systemInput.Config_OutletDelay}} Minuten</p>
+  </md-list-item>
+  <md-divider></md-divider>
+
+</md-list>
+
+<span class="app-action">
+  <button md-fab color="warn"(click)="saveSettings()"><md-icon>check circle</md-icon></button>
+</span>
